@@ -13,16 +13,15 @@ We need to create a new role in the PostgresQL (10) to create a DB:
 
 - CREATE ROLE resuelve PASSWORD 'resuelve' NOSUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;
 
+### Run the app
+
 To start your Phoenix server:
 
 - Install dependencies with `mix deps.get`
 - Create and migrate your database with `mix ecto.setup`
 - Install Node.js dependencies with `npm install` inside the `assets` directory
-
-### Run the app
-
 - Start Phoenix endpoint with `mix phx.server`
-- Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+- Now you can visit [`http://localhost:7000/`](http://localhost:7000/) from your browser.
 
 ### Run the tests
 
