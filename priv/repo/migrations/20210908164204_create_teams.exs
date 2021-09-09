@@ -10,5 +10,7 @@ defmodule ResuelveFc.Repo.Migrations.CreateTeams do
       timestamps()
     end
 
+    create unique_index(:teams, [:name])
+
   end
 end

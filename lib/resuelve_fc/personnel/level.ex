@@ -4,7 +4,9 @@ defmodule ResuelveFc.Personnel.Level do
 
   schema "levels" do
     field :name, :string
-    field :score_month, :integer
+    field :score_month, :integer, default: 0
+
+    has_many :players, ResuelveFc.Personnel.Player
 
     timestamps()
   end
@@ -14,5 +16,6 @@ defmodule ResuelveFc.Personnel.Level do
     level
     |> cast(attrs, [:name, :score_month])
     |> validate_required([:name, :score_month])
+    |> unique_constraint(:name)
   end
 end

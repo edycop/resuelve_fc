@@ -7,6 +7,8 @@ defmodule ResuelveFc.Personnel.Salary do
     field :bonus, :float
     field :full_salary, :float
 
+    has_many :players, ResuelveFc.Personnel.Player
+
     timestamps()
   end
 

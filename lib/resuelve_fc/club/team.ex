@@ -3,9 +3,11 @@ defmodule ResuelveFc.Club.Team do
   import Ecto.Changeset
 
   schema "teams" do
-    field :goals, :integer
+    field :goals, :integer, default: 0
     field :name, :string
-    field :score_month, :integer
+    field :score_month, :integer, default: 0
+
+    has_many :players, ResuelveFc.Personnel.Player
 
     timestamps()
   end
@@ -15,5 +17,6 @@ defmodule ResuelveFc.Club.Team do
     team
     |> cast(attrs, [:name, :goals, :score_month])
     |> validate_required([:name, :goals, :score_month])
+    |> unique_constraint(:name)
   end
 end

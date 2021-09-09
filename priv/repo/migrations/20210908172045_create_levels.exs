@@ -9,5 +9,7 @@ defmodule ResuelveFc.Repo.Migrations.CreateLevels do
       timestamps()
     end
 
+    create unique_index(:levels, [:name])
+
   end
 end
