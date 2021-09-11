@@ -11,6 +11,9 @@ defmodule ResuelveFcWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    # plug :accepts, ~w(html json ...)
+
+    resources "/players", ResuelveFcWeb.PlayerController, except: [:new, :edit]
   end
 
   scope "/", ResuelveFcWeb do

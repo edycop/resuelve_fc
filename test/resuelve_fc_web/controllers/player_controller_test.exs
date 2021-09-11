@@ -6,13 +6,19 @@ defmodule ResuelveFcWeb.PlayerControllerTest do
 
   @create_attrs %{
     goals: 42,
-    name: "some name"
+    name: "some name",
+    active: true,
+    email: "test@email.com"
   }
+
   @update_attrs %{
     goals: 43,
-    name: "some updated name"
+    name: "some updated name",
+    active: true,
+    email: "test1@email.com"
   }
-  @invalid_attrs %{goals: nil, name: nil}
+
+  @invalid_attrs %{goals: nil, name: nil, active: nil, email: nil}
 
   def fixture(:player) do
     {:ok, player} = Personnel.create_player(@create_attrs)

@@ -13,4 +13,12 @@ defmodule ResuelveFcWeb.FallbackController do
     |> put_view(ResuelveFcWeb.ErrorView)
     |> render(:"404")
   end
+
+  # This clause will handle invalid resource data.
+  def call(conn, {:error, %Ecto.Changeset{}}) do
+    conn
+    |> put_status(:unprocessable_entity)
+    |> put_view(ResuelveFcWeb.ErrorView)
+    |> render(:"422")
+  end
 end

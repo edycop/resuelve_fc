@@ -130,7 +130,7 @@ defmodule ResuelveFc.PersonnelTest do
   describe "players" do
     alias ResuelveFc.Personnel.Player
 
-    @valid_attrs %{goals: 42, name: "some name"}
+    @valid_attrs %{goals: 42, name: "some name", active: true, email: "test@email.com"}
     @update_attrs %{goals: 43, name: "some updated name"}
     @invalid_attrs %{goals: nil, name: nil}
 
