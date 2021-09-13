@@ -17,7 +17,7 @@ config :resuelve_fc, ResuelveFc.Repo,
 # with webpack to recompile .js and .css sources.
 config :resuelve_fc, ResuelveFcWeb.Endpoint,
   http: [port: 7000, ip: {0, 0, 0, 0}],
-  debug_errors: true,
+  debug_errors: false,
   code_reloader: true,
   check_origin: false,
   watchers: [

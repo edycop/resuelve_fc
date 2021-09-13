@@ -11,9 +11,8 @@ defmodule ResuelveFcWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-    # plug :accepts, ~w(html json ...)
 
-    resources "/players", ResuelveFcWeb.PlayerController, except: [:new, :edit]
+    # resources "/players", ResuelveFcWeb.PlayerController, except: [:new, :edit]
   end
 
   scope "/", ResuelveFcWeb do
@@ -23,9 +22,11 @@ defmodule ResuelveFcWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ResuelveFcWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", ResuelveFcWeb do
+    pipe_through :api
+
+    resources "/players", PlayerController, except: [:new, :edit]
+  end
 
   # Enables LiveDashboard only for development
   #

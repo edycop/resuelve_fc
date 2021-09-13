@@ -11,8 +11,26 @@ defmodule ResuelveFcWeb.PlayerView do
   end
 
   def render("player.json", %{player: player}) do
-    %{id: player.id,
+    player =
+      player
+      |> ResuelveFc.Repo.preload(:salary)
+      |> ResuelveFc.Repo.preload(:level)
+      |> ResuelveFc.Repo.preload(:team)
+
+    %{
       name: player.name,
-      goals: player.goals}
+      goals: player.goals
+    }
+    |> Map.merge(%{
+      salary: render_relationship(player.salary, ResuelveFcWeb.SalaryView, "salary.json"),
+      level: render_relationship(player.level, ResuelveFcWeb.LevelView, "level.json"),
+      team: render_relationship(player.team, ResuelveFcWeb.TeamView, "team.json")
+    })
+  end
+
+  defp render_relationship(%Ecto.Association.NotLoaded{}, _, _), do: nil
+
+  defp render_relationship(relation, view, template) do
+    render_one(relation, view, template)
   end
 end
