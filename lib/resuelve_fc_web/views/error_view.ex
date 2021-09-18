@@ -18,4 +18,11 @@ defmodule ResuelveFcWeb.ErrorView do
     "Unprocessable entity"
   end
 
+  def render("error.json", %{message: message}) do
+    %{
+      error: %{
+        message: message
+      }
+    }
+  end
 end

@@ -37,6 +37,8 @@ defmodule ResuelveFc.Club do
   """
   def get_team!(id), do: Repo.get!(Team, id)
 
+  def get_team_by_name(name), do: Repo.get_by(Team, name: name)
+
   @doc """
   Creates a team.
 

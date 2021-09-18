@@ -21,4 +21,11 @@ defmodule ResuelveFcWeb.FallbackController do
     |> put_view(ResuelveFcWeb.ErrorView)
     |> render(:"422")
   end
+
+  # The clause show a message when a resource couldn't be found
+  def call(conn, nil) do
+    conn
+    |> put_status(:not_found)
+    |> render(ResuelveFcWeb.ErrorView, "error.json", message: "The resource couldn't be found!")
+  end
 end

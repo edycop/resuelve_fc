@@ -37,6 +37,11 @@ defmodule ResuelveFc.Personnel do
   """
   def get_salary!(id), do: Repo.get!(Salary, id)
 
+  def get_salary_by_atrs(base_salary, bonus) do
+    from(s in Salary, where: s.base_salary == ^base_salary and s.bonus == ^bonus)
+    |> Repo.one()
+  end
+
   @doc """
   Creates a salary.
 
@@ -132,6 +137,8 @@ defmodule ResuelveFc.Personnel do
 
   """
   def get_level!(id), do: Repo.get!(Level, id)
+
+  def get_level_by_name(name), do: Repo.get_by(Level, name: name)
 
   @doc """
   Creates a level.

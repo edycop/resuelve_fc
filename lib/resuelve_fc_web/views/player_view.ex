@@ -33,4 +33,12 @@ defmodule ResuelveFcWeb.PlayerView do
   defp render_relationship(relation, view, template) do
     render_one(relation, view, template)
   end
+
+  def render("error.json", %{message: message}) do
+    %{
+      error: %{
+        message: message
+      }
+    }
+  end
 end

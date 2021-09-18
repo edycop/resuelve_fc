@@ -1,4 +1,3 @@
-
 alias ResuelveFc.Personnel.Level
 alias ResuelveFc.Personnel.Salary
 # alias ResuelveFc.Personnel.Player
@@ -11,7 +10,19 @@ ResuelveFc.Repo.delete_all(Team)
 if Mix.env() == :dev do
   ResuelveFc.Repo.insert!(%Team{
     goals: 10,
-    name: Faker.Team.name,
+    name: Faker.Team.name(),
+    score_month: 0
+  })
+
+  ResuelveFc.Repo.insert!(%Team{
+    goals: 0,
+    name: "rojo",
+    score_month: 0
+  })
+
+  ResuelveFc.Repo.insert!(%Team{
+    goals: 0,
+    name: "azul",
     score_month: 0
   })
 
@@ -27,6 +38,16 @@ if Mix.env() == :dev do
   ResuelveFc.Repo.insert!(%Salary{
     base_salary: 100.0,
     bonus: 50.0
+  })
+
+  ResuelveFc.Repo.insert!(%Salary{
+    base_salary: 50000.0,
+    bonus: 25000.0
+  })
+
+  ResuelveFc.Repo.insert!(%Salary{
+    base_salary: 100_000.0,
+    bonus: 30000.0
   })
 
   # ResuelveFc.Repo.insert!(%Player{

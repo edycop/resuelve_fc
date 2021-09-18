@@ -27,6 +27,8 @@ To start your Phoenix server:
 
 - mix test --trace
 
+## Documentation
+
 ## Learn more
 
 - Official website: https://www.phoenixframework.org/

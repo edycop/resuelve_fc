@@ -25,7 +25,8 @@ defmodule ResuelveFcWeb.Router do
   scope "/api", ResuelveFcWeb do
     pipe_through :api
 
-    resources "/players", PlayerController, except: [:new, :edit]
+    post "/players", PlayerController, :add
+    # resources "/players", PlayerController, except: [:new, :edit]
   end
 
   # Enables LiveDashboard only for development
