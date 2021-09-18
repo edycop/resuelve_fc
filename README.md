@@ -17,17 +17,26 @@ We need to create a new role in the PostgresQL (10) to create a DB:
 
 To start your Phoenix server:
 
+- Clone this project and enter to the new directory
 - Install dependencies with `mix deps.get`
 - Create and migrate your database with `mix ecto.setup`
 - Install Node.js dependencies with `npm install` inside the `assets` directory
 - Start Phoenix endpoint with `mix phx.server`
 - Now you can visit [`http://localhost:7000/`](http://localhost:7000/) from your browser.
 
+In this case we have the `seeds.exs` file where you can find some records to be inserted.
+
 ### Run the tests
 
 - mix test --trace
 
-## Documentation
+## Technical Documentation
+
+- This project has the next architecture:
+  ![Resuelve FC architecture](assets/static/images/resuelve_FC.png)
+
+- You can test the API with Postman or the Thunder Cliente Vscode plugin:
+  ![testing the API](assets/static/images/Screenshot.png)
 
 ## Learn more
 
